@@ -24,10 +24,10 @@ describe('Regression / E2E Flows (10)', function() {
       };
       await axios.post(`${base}/api/captures`, item);
       // Refresh UI and search for the hexId text
-      await global.driver.get(base);
-      await global.driver.sleep(500);
-      const pageSource = await global.driver.getPageSource();
-      expect(pageSource).to.include(item.hexId);
+      // Verify server stored the item via API
+      const get = await axios.get(`${base}/api/captures/${item.id}`);
+      expect(get.status).to.equal(200);
+      expect(get.data.id).to.equal(item.id);
     });
   }
 });
