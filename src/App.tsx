@@ -100,40 +100,41 @@ export default function App() {
   ];
 
   return (
-    <div className={`min-h-screen flex flex-col font-sans transition-colors duration-200 ${
-      currentTab === 'home' 
-        ? 'bg-transparent text-slate-800 dark:text-slate-100'
-        : darkMode ? 'bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-800'
-    }`}>
-      {/* Immersive full-screen background representing SIMATS Engineering */}
-      {currentTab === 'home' && (
-        <div 
-          className={`fixed inset-0 bg-cover bg-center -z-20 pointer-events-none transition-all duration-300 ${
-            darkMode ? 'bg-slate-950' : 'bg-slate-50'
-          }`}
-          style={{ backgroundImage: `url(${simatsBackground})` }}
-          referrerPolicy="no-referrer"
-        >
-          {darkMode ? (
-            <>
-              {/* Immersive dark overlays to show the beautiful dark neon atmosphere when in dark theme */}
-              <div className="absolute inset-0 bg-slate-950/40 pointer-events-none" />
-              <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-transparent to-slate-950/90 pointer-events-none" />
-            </>
-          ) : (
-            <>
-              {/* Immersive light overlays for pristine text legibility in light theme */}
-              <div className="absolute inset-0 bg-white/20 pointer-events-none" />
-              <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/80 pointer-events-none" />
-            </>
-          )}
-        </div>
-      )}
+    <div 
+      className={`min-h-screen flex flex-col font-sans transition-colors duration-200 ${
+        darkMode ? 'bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-800'
+      }`}
+      style={{
+        backgroundImage: `url(${simatsBackground})`,
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Full-screen building background overlay */}
+      <div 
+        className={`fixed inset-0 -z-10 pointer-events-none transition-all duration-300`}
+      >
+        {darkMode ? (
+          <>
+            {/* Dark theme overlays for beautiful neon atmosphere */}
+            <div className="absolute inset-0 bg-slate-950/50 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/30 to-slate-950/80 pointer-events-none" />
+          </>
+        ) : (
+          <>
+            {/* Light theme overlays for pristine text legibility */}
+            <div className="absolute inset-0 bg-white/25 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/60 pointer-events-none" />
+          </>
+        )}
+      </div>
       {/* 1. Header component matches layout structure in reference images */}
       <header className={`sticky top-0 z-50 border-b transition-colors duration-200 print:hidden ${
         darkMode 
-          ? 'bg-slate-950/90 text-white border-white/5 backdrop-blur-md' 
-          : 'bg-white/95 text-slate-800 border-slate-150 backdrop-blur-md shadow-sm'
+          ? 'bg-slate-950/95 text-white border-white/10 backdrop-blur-lg shadow-lg' 
+          : 'bg-white/98 text-slate-800 border-slate-200 backdrop-blur-lg shadow-md'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
           
