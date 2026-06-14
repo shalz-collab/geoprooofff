@@ -11,7 +11,7 @@ const showBrowser = process.env.SHOW_BROWSER === '1' || process.env.SHOW_BROWSER
 before(async function() {
   this.timeout(20000);
   const options = new chrome.Options();
-  if (!showBrowser) options.headless();
+  if (!showBrowser) options.addArguments('--headless=new');
   options.addArguments('--no-sandbox', '--disable-dev-shm-usage');
   driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
   global.driver = driver;

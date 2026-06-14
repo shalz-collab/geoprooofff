@@ -1,4 +1,4 @@
-const { driver } = require('./common');
+require('./common');
 const axios = require('axios');
 const { expect } = require('chai');
 
@@ -24,9 +24,9 @@ describe('Regression / E2E Flows (10)', function() {
       };
       await axios.post(`${base}/api/captures`, item);
       // Refresh UI and search for the hexId text
-      await driver.get(base);
-      await driver.sleep(500);
-      const pageSource = await driver.getPageSource();
+      await global.driver.get(base);
+      await global.driver.sleep(500);
+      const pageSource = await global.driver.getPageSource();
       expect(pageSource).to.include(item.hexId);
     });
   }

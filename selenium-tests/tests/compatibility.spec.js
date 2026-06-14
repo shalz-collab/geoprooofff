@@ -14,7 +14,7 @@ describe('Compatibility Tests (10 viewport sizes)', function() {
   sizes.forEach((s, idx) => {
     it(`Compatibility - viewport ${s.w}x${s.h}`, async function() {
       const options = new chrome.Options();
-      options.headless();
+      options.addArguments('--headless=new');
       const drv = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
       try {
         await drv.manage().window().setRect({ width: s.w, height: s.h });

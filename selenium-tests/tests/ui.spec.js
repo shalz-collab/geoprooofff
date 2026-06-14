@@ -1,4 +1,4 @@
-const { driver } = require('./common');
+require('./common');
 const { expect } = require('chai');
 
 describe('UI/UX Tests (15)', function() {
@@ -11,9 +11,9 @@ describe('UI/UX Tests (15)', function() {
   for (let i = 1; i <= 15; i++) {
     it(`UI/UX - element visibility check #${i}`, async function() {
       const url = process.env.BASE_URL || 'http://localhost:3002';
-      await driver.get(url);
+      await global.driver.get(url);
       for (const sel of checks) {
-        const els = await driver.findElements({ css: sel });
+        const els = await global.driver.findElements({ css: sel });
         expect(els.length).to.be.at.least(0);
       }
     });

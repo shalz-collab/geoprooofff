@@ -1,4 +1,4 @@
-const { driver } = require('./common');
+require('./common');
 const { expect } = require('chai');
 
 describe('Performance Tests (10)', function() {
@@ -8,7 +8,7 @@ describe('Performance Tests (10)', function() {
     it(`Performance - page load time check #${i}`, async function() {
       const url = process.env.BASE_URL || 'http://localhost:3002';
       const start = Date.now();
-      await driver.get(url);
+      await global.driver.get(url);
       // small wait for load
       await driver.sleep(500);
       const duration = Date.now() - start;

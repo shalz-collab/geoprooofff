@@ -13,7 +13,7 @@ describe('Mobile-Specific Tests (8)', function() {
   devices.forEach((d, idx) => {
     it(`Mobile viewport ${d.w}x${d.h}`, async function() {
       const options = new chrome.Options();
-      options.headless();
+      options.addArguments('--headless=new');
       const drv = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
       try {
         await drv.manage().window().setRect({ width: d.w, height: d.h });
