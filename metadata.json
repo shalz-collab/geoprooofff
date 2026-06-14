@@ -1,0 +1,6 @@
+{
+  "name": "GeoProof",
+  "description": "Enterprise AI-Powered Geo-Tagged Image Verification Platform designed for real-time secure physical verification.",
+  "requestFramePermissions": ["camera", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
