@@ -1,0 +1,19 @@
+{
+  "name": "geoproof-selenium-tests",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "mocha --recursive tests --timeout 120000",
+    "test:report": "node run-with-report.js"
+  },
+  "dependencies": {
+    "axe-core": "^4.8.0",
+    "axe-webdriverjs": "^2.3.0",
+    "chai": "^4.3.7",
+    "chromedriver": "^116.0.0",
+    "exceljs": "^4.3.0",
+    "mocha": "^10.2.0",
+    "selenium-webdriver": "^4.14.0",
+    "axios": "^1.4.0"
+  }
+}
